@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610202341) do
+ActiveRecord::Schema.define(version: 20170610220417) do
 
   create_table "bays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20170610202341) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "ship_id"
+    t.integer "capacity"
     t.index ["ship_id"], name: "index_weapons_bays_on_ship_id"
   end
 
