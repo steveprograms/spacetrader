@@ -1,0 +1,12 @@
+Here is your user!
+<br>
+<%= @user.email %>
+<br>
+<br>
+Games:
+<% @user.games.each do |game| %>
+  <%= game.name %>
+  <%= game.created_at %>
+<% end %>
+<br><br>
+<%= link_to 'New Game', new_game_path %>
