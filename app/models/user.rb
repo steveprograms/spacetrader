@@ -37,10 +37,16 @@ class User < ApplicationRecord
 	  destination = Planet.find_by_name(planet_name)
 	  current = Planet.find(planet_id)
 	  distance = Math.sqrt(((destination.x_coord - current.x_coord) ** 2) + (((destination.y_coord - current.y_coord) ** 2 )))
-	  puts "DEBUG"
-	  puts distance
+	  fuel_cost = distance * 3
+	  if fuel_cost < ship.fuel
+	  	puts "Traveling to " + planet_name
+	  	puts "This costs " + fuel_cost.to_s + " gallons of fuel."
+	  	update(planet_id: destination.id)
+	  	ship.fuel_tank.update(amount: (ship.fuel_tank.amount - fuel_cost))
+	  else
+	  	puts "Not enough fuel, you need " + fuel_cost.to_s + " gallons of fuel for this trip."
+	  end
 
-	  update(planet_id: destination.id)
 	end
 
 	def planet

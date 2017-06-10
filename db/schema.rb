@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610183931) do
+ActiveRecord::Schema.define(version: 20170610192332) do
+
+  create_table "bays", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "planet_id"
+    t.integer "fuel_price"
+    t.integer "repair_price"
+    t.index ["planet_id"], name: "index_bays_on_planet_id"
+  end
 
   create_table "fuel_tanks", force: :cascade do |t|
     t.integer "ship_id"
@@ -90,6 +99,21 @@ ActiveRecord::Schema.define(version: 20170610183931) do
     t.string "rank"
     t.integer "credits"
     t.integer "planet_id"
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "weapons_bay_id"
+    t.index ["weapons_bay_id"], name: "index_weapons_on_weapons_bay_id"
+  end
+
+  create_table "weapons_bays", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "ship_id"
+    t.index ["ship_id"], name: "index_weapons_bays_on_ship_id"
   end
 
 end
