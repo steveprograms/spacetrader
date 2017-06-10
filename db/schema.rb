@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610192332) do
+ActiveRecord::Schema.define(version: 20170610202341) do
 
   create_table "bays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20170610192332) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ship_id"], name: "index_fuel_tanks_on_ship_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "name"
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "holds", force: :cascade do |t|
@@ -56,6 +64,17 @@ ActiveRecord::Schema.define(version: 20170610192332) do
     t.string "name"
     t.integer "x_coord"
     t.integer "y_coord"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "rank"
+    t.integer "credits"
+    t.integer "planet_id"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_players_on_game_id"
   end
 
   create_table "price_sheets", force: :cascade do |t|
@@ -95,10 +114,8 @@ ActiveRecord::Schema.define(version: 20170610192332) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "rank"
-    t.integer "credits"
-    t.integer "planet_id"
+    t.string "email"
+    t.string "password"
   end
 
   create_table "weapons", force: :cascade do |t|

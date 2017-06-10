@@ -4,7 +4,7 @@ class Ship < ApplicationRecord
 	has_one :hold
 	has_one :weapons_bay
 
-	belongs_to :user
+	belongs_to :player
 
 	def fuel
 	  fuel_tank.amount
