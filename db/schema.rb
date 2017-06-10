@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610220417) do
+ActiveRecord::Schema.define(version: 20170610234521) do
 
   create_table "bays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20170610220417) do
     t.integer "fuel_price"
     t.integer "repair_price"
     t.index ["planet_id"], name: "index_bays_on_planet_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "end_date"
+    t.string "name"
+    t.string "description"
   end
 
   create_table "fuel_tanks", force: :cascade do |t|
@@ -64,6 +72,9 @@ ActiveRecord::Schema.define(version: 20170610220417) do
     t.string "name"
     t.integer "x_coord"
     t.integer "y_coord"
+    t.string "description"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_planets_on_game_id"
   end
 
   create_table "players", force: :cascade do |t|
