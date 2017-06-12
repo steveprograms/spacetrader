@@ -1,8 +1,8 @@
 class Ship < ApplicationRecord
-	has_one :shield
-	has_one :fuel_tank
-	has_one :hold
-	has_one :weapons_bay
+	has_one :shield, dependent: :destroy
+	has_one :fuel_tank, dependent: :destroy
+	has_one :hold, dependent: :destroy
+	has_one :weapons_bay, dependent: :destroy
 
 	belongs_to :player
 
