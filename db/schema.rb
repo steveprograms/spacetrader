@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612005326) do
+ActiveRecord::Schema.define(version: 20170612032822) do
 
   create_table "bays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170612005326) do
     t.string "description"
     t.integer "game_id"
     t.datetime "used_at"
+    t.text "effect"
     t.index ["game_id"], name: "index_events_on_game_id"
   end
 
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170612005326) do
     t.integer "y_coord"
     t.string "description"
     t.integer "game_id"
+    t.string "history"
     t.index ["game_id"], name: "index_planets_on_game_id"
   end
 
@@ -118,6 +120,14 @@ ActiveRecord::Schema.define(version: 20170612005326) do
     t.integer "grain"
     t.integer "gold"
     t.integer "plastic"
+    t.integer "diamonds"
+    t.integer "missiles"
+    t.integer "bananas"
+    t.integer "uranium"
+    t.integer "tang"
+    t.integer "potatoes"
+    t.integer "furs"
+    t.integer "steel"
     t.index ["planet_id"], name: "index_stores_on_planet_id"
   end
 
