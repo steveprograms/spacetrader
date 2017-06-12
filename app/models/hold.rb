@@ -1,4 +1,4 @@
 class Hold < ApplicationRecord
-	belongs_to :ship
-	has_many :items, dependent: :destroy
+  belongs_to :ship
+  has_many :items, dependent: :destroy
 end
