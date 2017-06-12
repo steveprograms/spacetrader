@@ -1,5 +1,5 @@
 class Player < ApplicationRecord
-	has_one :ship, dependent: :destroy
+  has_one :ship, dependent: :destroy
   belongs_to :game
 
 	def buy(item_name)
@@ -48,6 +48,11 @@ class Player < ApplicationRecord
 	  	puts "Not enough fuel, you need " + fuel_cost.to_s + " gallons of fuel for this trip."
 	  end
 	end
+
+  def distance_from(destination)
+    destination = Planet.where(game_id: game.id, name: destination).first
+    Math.sqrt(((destination.x_coord - planet.x_coord) ** 2) + (((destination.y_coord - planet.y_coord) ** 2 )))
+  end
 
 	def planet
     Planet.find(planet_id)

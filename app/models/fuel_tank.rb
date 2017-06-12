@@ -1,3 +1,3 @@
 class FuelTank < ApplicationRecord
-	belongs_to :ship
+  belongs_to :ship
 end

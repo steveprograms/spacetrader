@@ -1,9 +1,9 @@
 class Game < ApplicationRecord
-	belongs_to :user
-	has_one :player, dependent: :destroy
+  belongs_to :user
+  has_one :player, dependent: :destroy
 
 	
-	has_many :planets, dependent: :destroy
+  has_many :planets, dependent: :destroy
   has_many :events, dependent: :destroy
   
   serialize :effect, Hash
