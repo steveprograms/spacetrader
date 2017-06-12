@@ -5,18 +5,20 @@ class Game < ApplicationRecord
 	
 	has_many :planets, dependent: :destroy
   has_many :events, dependent: :destroy
+  
+  serialize :effect, Hash
 
   after_create :initialize_data
 
   def create_events
     event_infos.each do |event_info|
-      event = Event.new(name: event_info[0], description: event_info[1], game_id: id)
+      event = Event.new(name: event_info[:name], description: event_info[:description], effect: event_info[:effect], game_id: id)
       event.save
     end
   end
 
   def event_infos
-    [["Viral Outbreak", "A new virus, 'Skettlepop', has scientists baffled and people hiding in their homes.  The viral outbreak started approximately 3 days ago, when the virus was brought to the planet by way of a cadavier being flown in from the outter solar system.  Scientists say they were planning on studying the body, which is of a species rarely seen."], ["Police Crackdown on Drugs", "Police on the planet are reporting they have just seized 13 tons of narcotics coming in by way of starship.  They have had the sting planned, which was executed yesterday, for three months.  The 13 tons is the largest amount ever seized, and police as well as planet politicians believe we should finally see a decrease in drugs on the streets and in our kids bodies."]]
+    [{name: "Viral Outbreak", description: "A new virus, 'Skettlepop', has scientists baffled and people hiding in their homes.  The viral outbreak started approximately 3 days ago, when the virus was brought to the planet by way of a cadavier being flown in from the outter solar system.  Scientists say they were planning on studying the body, which is of a species rarely seen.", effect: {medicine: rand(500...1000)}}, {name: "Police Crackdown on Drugs", description: "Police on the planet are reporting they have just seized 13 tons of narcotics coming in by way of starship.  They have had the sting planned, which was executed yesterday, for three months.  The 13 tons is the largest amount ever seized, and police as well as planet politicians believe we should finally see a decrease in drugs on the streets and in our kids bodies.", effect: {narcotics: rand(1000...1500)}}]
   end
 
   def create_planets
@@ -41,6 +43,15 @@ class Game < ApplicationRecord
     create_events
     create_planets
     create_stores
+  end
+
+  def random_event
+    event = events.sample
+    planet = planets.sample
+    eval(event[:effect]).each do |effect|
+      planet.store["#{effect[0]}"] = planet.store["#{effect[0]}"] + effect[1]
+      planet.store.save
+    end
   end
 end
 

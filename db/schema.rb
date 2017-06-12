@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612005326) do
+ActiveRecord::Schema.define(version: 20170612013024) do
 
   create_table "bays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170612005326) do
     t.string "description"
     t.integer "game_id"
     t.datetime "used_at"
+    t.text "effect"
     t.index ["game_id"], name: "index_events_on_game_id"
   end
 
