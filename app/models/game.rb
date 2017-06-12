@@ -30,9 +30,17 @@ class Game < ApplicationRecord
     [["Mercurion", "A boiling hot planet, mostly inhabited by those who work in the mines"], ["Orias", "A glittering shimmering star of a city"], ["Rust", "Dusty, red, quiet"], ["K-787", "Hi 02, good stock, execute 8797"], ["Sunspeared", "GLORY, GLORY TO THE SUN"], ["Chindi", "A planet made by humans"], ["Omega", "Constantly covered with immense yellow clouds"], ["Ark", "A planet still in the bronze age, a haven for those fleeing the problems of a technological society"]]
   end
 
+  def create_stores
+    planets.each do |planet|
+      store = Store.new(planet_id: planet.id, gold: rand(900...1100), narcotics: rand(1800...2200), medicine: rand(2000...2400), scrap_metal: rand(15...25), grain: rand(10...20), plastic: rand(250...350))
+      store.save
+    end
+  end
+
   def initialize_data
     create_events
     create_planets
+    create_stores
   end
 end
 
