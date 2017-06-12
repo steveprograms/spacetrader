@@ -45,10 +45,13 @@ class Game < ApplicationRecord
     ]
   end
 
-  def create_stores
+  def create_stores_and_bays
     planets.each do |planet|
       store = Store.new(planet_id: planet.id, gold: rand(900...1100), narcotics: rand(1800...2200), medicine: rand(2000...2400), scrap_metal: rand(15...25), grain: rand(10...20), plastic: rand(250...350), diamonds: rand(1800...2200), bananas: rand(15...25), missiles: rand(3200...3600), uranium: rand(6000...7000), tang: rand(20...40), potatoes: rand(15...30), furs: rand(70...110), steel: rand(250...350), )
       store.save
+
+      bay = Bay.new(planet_id: planet.id, fuel_price: rand(8...12))
+      bay.save
     end
   end
 
@@ -76,13 +79,24 @@ class Game < ApplicationRecord
   def initialize_data
     create_events
     create_planets
-    create_stores
+    create_stores_and_bays
+    create_player_and_ship
     
+    
+  end
+
+  def create_player_and_ship
     player = Player.new(game_id: id, name: "New Player", planet_id: Planet.find_by_name("Terra").id, credits: 1000, rank: "Plebe")
     player.save
 
     ship = Ship.new(player_id: player.id, name: "#{player.name}'s Ship", brand: "Kohlen", model: "Mosquito")
     ship.save
+
+    weapons_bay = WeaponsBay.new(ship_id: ship.id)
+    weapons_bay.save
+
+    fuel_tank = FuelTank.new(ship_id: ship.id, amount: 50, capacity: 50)
+    fuel_tank.save
   end
 
   def random_event
