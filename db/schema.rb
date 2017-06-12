@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610234521) do
+ActiveRecord::Schema.define(version: 20170612005326) do
 
   create_table "bays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20170610234521) do
     t.datetime "end_date"
     t.string "name"
     t.string "description"
+    t.integer "game_id"
+    t.datetime "used_at"
+    t.index ["game_id"], name: "index_events_on_game_id"
   end
 
   create_table "fuel_tanks", force: :cascade do |t|
@@ -88,16 +91,6 @@ ActiveRecord::Schema.define(version: 20170610234521) do
     t.index ["game_id"], name: "index_players_on_game_id"
   end
 
-  create_table "price_sheets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.integer "store_id"
-    t.integer "narcotics"
-    t.integer "scrap_metal"
-    t.index ["store_id"], name: "index_price_sheets_on_store_id"
-  end
-
   create_table "shields", force: :cascade do |t|
     t.integer "ship_id"
     t.string "name"
@@ -119,6 +112,12 @@ ActiveRecord::Schema.define(version: 20170610234521) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "planet_id"
+    t.integer "narcotics"
+    t.integer "scrap_metal"
+    t.integer "medicine"
+    t.integer "grain"
+    t.integer "gold"
+    t.integer "plastic"
     t.index ["planet_id"], name: "index_stores_on_planet_id"
   end
 
