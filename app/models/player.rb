@@ -1,5 +1,5 @@
 class Player < ApplicationRecord
-	has_one :ship
+	has_one :ship, dependent: :destroy
   belongs_to :game
 
 	def buy(item_name)

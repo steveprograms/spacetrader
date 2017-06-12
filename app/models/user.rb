@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :games
+  has_many :games, dependent: :destroy
   before_save :validate_email_and_password
 
   
