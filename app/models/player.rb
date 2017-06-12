@@ -5,7 +5,7 @@ class Player < ApplicationRecord
 	def buy(item_name)
     planet = Planet.find(planet_id)
 
-    price = planet.store.price_sheet[item_name]
+    price = planet.store[item_name]
 
     if price < credits
       	
@@ -19,7 +19,7 @@ class Player < ApplicationRecord
   def sell(item_name)
     planet = Planet.find(planet_id)
 
-    price = planet.store.price_sheet[item_name]
+    price = planet.store[item_name]
 
     if ship.hold.items.where(name: item_name).length > 0
     	
