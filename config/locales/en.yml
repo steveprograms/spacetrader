@@ -31,3 +31,49 @@
 
 en:
   hello: "Hello world"
+  planets:
+    terra:
+      name: "Terra"
+      description: "Home sweet home"
+      history: ""
+    mercurion:
+      name: "Mercurion"
+      description: "A boiling hot planet, mostly inhabited by those who work in the mines"
+      history: ""
+    orias:
+      name: "Orias"
+      description: "A glittering shimmering star of a city"
+      history: ""
+    rust:
+      name: "Rust"
+      description: "Dusty, red, quiet"
+      history: ""
+    k_787:
+      name: "K-787"
+      description: "Hi 02, good stock, execute 8797"
+      history: ""
+    sunspeared:
+      name: "Sunspeared"
+      description: "GLORY, GLORY TO THE SUN"
+      history: ""
+    chindi:
+      name: "Chindi"
+      description: "A planet made by humans"
+      history: ""
+    omega:
+      name: "Omega"
+      description: "Constantly covered with immense yellow clouds"
+      history: ""
+    ark:
+      name: "Ark"
+      description: "A planet still in the bronze age, a haven for those fleeing the problems of a technological society."
+      history: ""
+    aquaris:
+      name: "Aquaris"
+      description: "Completely covered by water, the only land is man made and sparse across the planet.  The planets native inhabitants occupy immense underwater cities, while non-natives inhabit the above-water cities."
+      history: "Aquarus was formed approximately 3.5 billion years ago.  Along with innumerable other species that live below the waves, one particularly intelligent and adept species, called hydrams, evolved and made the planet their own.  The hydrams have had massive sweeping cities below the oceans for thousands of years (possibly millions, depending on if you belive Hydra folklore). Aquarus was initally thought to be devoid of intelligent life, as most of the inital observations were spacecraft simply surveying the surface of the water, which meant they missed the complexity of life that dwelled just out of sight.
+
+        When humans first discovered Aquarus and learned of it's inhabitants, they attempted to bring Aquarus into the federation, first by diplomatic means, and then by war.  While the humans technology outmatched that of the hydrams, they simply could not retain a foothold on the water planet.  The hydrams have evolved to fit the planet perfectly, and simply could not be ousted from their native land.  After centuries of conflict, Aquarus become some what of a territory, part of the federation but still it's own territory, with it's own laws, governing body, customs, and religions.  
+
+        Currently, Aquarus is dotted by numerous hubs of man-made land and structures.  Though Aquarian technology was almost on par with that of humans, they did not have one major thing that humans had: space travel.  When humans came along, they introduced the technology to leave the planet, though much work went into building the physical structures on the planet, since space travel needed land to work from.  Much of the water is dominated by hydrams, though many humans and other species live among them using special suits to breathe and communicate and work underwater.  Many non-hydrams visit underwater cities for short periods of time, but some have commited to living their entire lives under the surface, depending on technology to keep them alive.  Above the water, man-made islands create small hubs for land dwellers.  Much of the above water activity has to do with trade, space travel, military, and federation activity.  As well, it is the best place to use their sun as energy."
+

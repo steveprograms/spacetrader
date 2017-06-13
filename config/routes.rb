@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
 
   resources :users
-  resources :games
+  resources :games do
+    resources :planets
+    resources :events
+  end
   resources :players
   resources :ships
 
