@@ -2,19 +2,19 @@ class Player < ApplicationRecord
   has_one :ship, dependent: :destroy
   belongs_to :game
 
-	def buy(item_name)
+  def buy(item_name)
     planet = Planet.find(planet_id)
 
     price = planet.store[item_name]
 
     if price < credits
       	
-    	item = Item.new(name: item_name, hold_id: ship.hold.id)
-    	if item.save
-    	  update(credits: (credits - price))
-    	end
+      item = Item.new(name: item_name, hold_id: ship.hold.id)
+      if item.save
+        update(credits: (credits - price))
+      end
     end
-  end
+ end
 
   def sell(item_name)
     planet = Planet.find(planet_id)
@@ -54,7 +54,7 @@ class Player < ApplicationRecord
     Math.sqrt(((destination.x_coord - planet.x_coord) ** 2) + (((destination.y_coord - planet.y_coord) ** 2 )))
   end
 
-	def planet
+  def planet
     Planet.find(planet_id)
-	end
+  end
 end

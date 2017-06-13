@@ -13,21 +13,7 @@ class Game < ApplicationRecord
   def event_infos
     [
       {name: "Viral Outbreak", description: "A new virus, 'Skettlepop', has scientists baffled and people hiding in their homes.  The viral outbreak started approximately 3 days ago, when the virus was brought to the planet by way of a cadavier being flown in from the outter solar system.  Scientists say they were planning on studying the body, which is of a species rarely seen.", effect: {medicine: rand(500...1000)}}, 
-      {name: "Police Crackdown on Drugs", description: "Police on the planet are reporting they have just seized 13 tons of narcotics coming in by way of starship.  They have had the sting planned, which was executed yesterday, for three months.  The 13 tons is the largest amount ever seized, and police as well as planet politicians believe we should finally see a decrease in drugs on the streets and in our kids bodies.", effect: {narcotics: rand(1000...1500)}}
-    ]
-  end
-
-  def planet_infos
-    [
-      {name: "Terra", description: "Home sweet home"}, 
-      {name: "Mercurion", description: "A boiling hot planet, mostly inhabited by those who work in the mines"}, 
-      {name: "Orias", description: "A glittering shimmering star of a city"}, 
-      {name: "Rust", description: "Dusty, red, quiet"}, 
-      {name: "K-787", description: "Hi 02, good stock, execute 8797"}, 
-      {name: "Sunspeared", description: "GLORY, GLORY TO THE SUN"}, 
-      {name: "Chindi", description: "A planet made by humans"}, 
-      {name: "Omega", description: "Constantly covered with immense yellow clouds"}, 
-      {name: "Ark", description: "A planet still in the bronze age, a haven for those fleeing the problems of a technological society."}
+      {name: "Police Crackdown on Drugs", description: "Police on the planet are reporting they have just seized 13 tons of narcotics coming in by way of starship.  They have had the sting planned, which was executed yesterday, for three months.  The 13 tons is the largest amount ever seized, and police as well as planet politicians believe we should finally see a decrease in drugs on the streets and in our kids bodies.", effect: {narcotics: rand(1000...1500)}},
     ]
   end
 
@@ -43,8 +29,9 @@ class Game < ApplicationRecord
   end
 
   def create_planets
-    planet_infos.each do |planet_info|
-      planet = Planet.new(x_coord: rand(1...101), y_coord: rand(1...101), name: planet_info[:name], description: planet_info[:description], history: planet_info[:history], game_id: id)
+    I18n.t('planets').each do |planet_info|
+      puts planet_info
+      planet = Planet.new(x_coord: rand(1...101), y_coord: rand(1...101), name: planet_info[1][:name], description: planet_info[1][:description], history: planet_info[1][:history], game_id: id)
       planet.save
     end
   end
