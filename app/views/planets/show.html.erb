@@ -8,9 +8,15 @@
 <br><br>
 Player credits: <%= planet.game.player.credits %>
 <br><br>
+<input class="trade-input"></input>
+<button class="trade-button"></button>
 <% planet.store.items.each do |name, value| %>
   <%= name %>: <%= value %> cr.
   <br>
 <% end %>
 <br><br>
 <%= link_to "Home", game_path(planet.game) %>
+
+<script>
+var space = new Space.Universal;
+</script>
