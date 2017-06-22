@@ -6,6 +6,8 @@
 <br><br>
 <div><%= planet.history %></div>
 <br><br>
+Player credits: <%= planet.game.player.credits %>
+<br><br>
 <% planet.store.items.each do |name, value| %>
   <%= name %>: <%= value %> cr.
   <br>
