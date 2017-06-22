@@ -7,6 +7,7 @@ class Player < ApplicationRecord
 
   def pay_loan(amount)
     if (amount <= credits) && (amount <= game.bank.loan)
+    end
   end
 
   def deposit_savings(amount)
@@ -27,7 +28,7 @@ class Player < ApplicationRecord
         update(credits: (credits - price))
       end
     end
- end
+  end
 
   def sell(item_name)
     planet = Planet.find(planet_id)
@@ -70,4 +71,5 @@ class Player < ApplicationRecord
   def planet
     Planet.find(planet_id)
   end
+
 end
