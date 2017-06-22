@@ -10,8 +10,3 @@ class Space.Universal
     $(".trade-button").click (e) ->
       amount = $(".trade-input").val()
       console.log(amount)
-      $.ajax({
-        url: path
-        dataType: "script"
-        type: "GET"
-      })
