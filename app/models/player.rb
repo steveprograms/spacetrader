@@ -2,6 +2,20 @@ class Player < ApplicationRecord
   has_one :ship, dependent: :destroy
   belongs_to :game
 
+  def take_loan(amount)
+  end
+
+  def pay_loan(amount)
+    if (amount <= credits) && (amount <= game.bank.loan)
+    end
+  end
+
+  def deposit_savings(amount)
+  end
+
+  def withdraw_savings(amount)
+  end
+
   def buy(item_name)
     planet = Planet.find(planet_id)
 
@@ -14,7 +28,7 @@ class Player < ApplicationRecord
         update(credits: (credits - price))
       end
     end
- end
+  end
 
   def sell(item_name)
     planet = Planet.find(planet_id)
@@ -57,4 +71,5 @@ class Player < ApplicationRecord
   def planet
     Planet.find(planet_id)
   end
+
 end

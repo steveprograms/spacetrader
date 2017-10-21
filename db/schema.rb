@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612032822) do
+ActiveRecord::Schema.define(version: 20170615232212) do
+
+  create_table "banks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "game_id"
+    t.integer "loan"
+    t.integer "loan_interest_rate"
+    t.integer "savings"
+    t.integer "savings_interest_rate"
+    t.index ["game_id"], name: "index_banks_on_game_id"
+  end
 
   create_table "bays", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -106,8 +117,15 @@ ActiveRecord::Schema.define(version: 20170612032822) do
     t.index ["ship_id"], name: "index_shields_on_ship_id"
   end
 
-# Could not dump table "ships" because of following StandardError
-#   Unknown type '' for column 'model'
+  create_table "ships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "brand"
+    t.string "model"
+    t.integer "player_id"
+    t.index ["player_id"], name: "index_ships_on_player_id"
+  end
 
   create_table "stores", force: :cascade do |t|
     t.datetime "created_at", null: false
