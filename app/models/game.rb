@@ -38,7 +38,7 @@ class Game < ApplicationRecord
 
   def create_stores_and_bays
     planets.each do |planet|
-      store = Store.new(planet_id: planet.id, gold: rand(900...1100), narcotics: rand(1800...2200), medicine: rand(2000...2400), scrap_metal: rand(15...25), grain: rand(10...20), plastic: rand(250...350), diamonds: rand(1800...2200), bananas: rand(15...25), missiles: rand(3200...3600), uranium: rand(6000...7000), tang: rand(20...40), potatoes: rand(15...30), furs: rand(70...110), steel: rand(250...350), )
+      store = Store.new(planet_id: planet.id, gold_price: rand(900...1100), narcotics_price: rand(1800...2200), medicine_price: rand(2000...2400), scrap_metal_price: rand(15...25), grain_price: rand(10...20), plastic_price: rand(250...350), diamonds_price: rand(1800...2200), bananas_price: rand(15...25), missiles_price: rand(3200...3600), uranium_price: rand(6000...7000), tang_price: rand(20...40), potatoes_price: rand(15...30), furs_price: rand(70...110), steel_price: rand(250...350), )
       store.save
 
       bay = Bay.new(planet_id: planet.id, fuel_price: rand(8...12))
