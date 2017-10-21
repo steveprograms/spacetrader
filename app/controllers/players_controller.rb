@@ -15,6 +15,13 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
+  def buy
+    puts "BUY BUY BUY"
+    item = params[:item]
+    puts item
+    buy(item)
+  end
+
   private
   def player_params
   	params.require(:player).permit(:name)
