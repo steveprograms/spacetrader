@@ -20,4 +20,14 @@
   height: 500px;
   background-color: black;
   position: absolute;
+  opacity: 0.8;
+}
+
+.planet-graphic{
+  text-align: center;
+}
+
+.map-planet{
+  cursor: pointer;
+  
 }
