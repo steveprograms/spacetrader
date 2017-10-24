@@ -30,9 +30,7 @@ class Game < ApplicationRecord
 
   def create_planets
     I18n.t('planets').each do |planet_info|
-      puts planet_info
-      planet = Planet.new(x_coord: rand(1...101), y_coord: rand(1...101), name: planet_info[1][:name], description: planet_info[1][:description], history: planet_info[1][:history], game_id: id)
-      planet.save
+      planet = Planet.create(x_coord: planet_info.last[:x_coord], y_coord: planet_info.last[:y_coord], name: planet_info.last[:name], description: planet_info.last[:description], history: planet_info.last[:history], game_id: id)
     end
   end
 
