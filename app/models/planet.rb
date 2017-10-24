@@ -11,4 +11,12 @@ class Planet < ApplicationRecord
     I18n.t('planets')[self.name.parameterize.underscore.to_sym][:y_coord]
   end
 
+  def description
+    I18n.t('planets')[self.name.parameterize.underscore.to_sym][:description]
+  end
+
+  def history
+    I18n.t('planets')[self.name.parameterize.underscore.to_sym][:history]
+  end
+
 end
