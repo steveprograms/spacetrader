@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.map-wrapper{
+  margin: 10em 0 0 10em;
+  width: 800px;
+  height: 500px;
+  background-color: black;
+  position: absolute;
+}

@@ -1,0 +1,8 @@
+<div class="map-wrapper">
+<% @game.planets.each do |planet| %>
+  <div class="map-planet" style="position: absolute; left: <%= planet.x_coord*2.5 %>px; bottom: <%= planet.y_coord*2.5 %>px; width: 5px; height: 5px; background-color: white">
+    <br>
+    <div style="color: white;"><%= planet.name %></div>
+  </div>
+<% end %>
+</div>
