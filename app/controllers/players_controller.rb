@@ -16,10 +16,9 @@ class PlayersController < ApplicationController
   end
 
   def buy
-    puts "BUY BUY BUY"
-    item = params[:item]
-    puts item
-    buy(item)
+    respond_to do |format|
+      format.js 
+    end
   end
 
   private
