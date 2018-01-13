@@ -25,7 +25,7 @@ class Player < ApplicationRecord
   def sell_item(item, price)
     items = self.ship.hold.items
     item = items.where(name: item)
-    if item
+    if !item.nil?
       item = item.first
       item.destroy
       self.credits += price.to_i

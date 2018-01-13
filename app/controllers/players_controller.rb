@@ -17,11 +17,11 @@ class PlayersController < ApplicationController
 
   def buy
     puts "HITTING CONTROLLER"
-    item = params[:item]
-    item = item[0, item.length - 6]
-    price =  params[:price]
+    @item = params[:item]
+
+    @price =  params[:price]
     player = Player.find(params[:player_id])
-    player.buy_item(item, price)
+    player.buy_item(@item, @price)
     respond_to do |format|
       format.js 
     end
@@ -30,10 +30,10 @@ class PlayersController < ApplicationController
   def sell
     puts "HITTING CONTROLLER"
     item = params[:item]
-    item = item[0, item.length - 6]
-    price =  params[:price]
+    @item = item[0, item.length - 6]
+    @price =  params[:price]
     player = Player.find(params[:player_id])
-    player.sell_item(item, price)
+    player.sell_item(@item, @price)
     respond_to do |format|
       format.js 
     end
