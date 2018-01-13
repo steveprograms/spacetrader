@@ -16,6 +16,12 @@ class PlayersController < ApplicationController
   end
 
   def buy
+    puts "HITTING CONTROLLER"
+    item = params[:item]
+    item = item[0, item.length - 6]
+    price =  params[:price]
+    player = Player.find(params[:player_id])
+    player.buy_item(item, price)
     respond_to do |format|
       format.js 
     end

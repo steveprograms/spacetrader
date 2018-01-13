@@ -12,7 +12,7 @@ Player credits: <%= planet.game.player.credits %>
 <input class="trade-input"></input>
 <button class="trade-button"></button>
 <% planet.store.items.each do |name, value| %>
-  <%= name %>: <%= value %> cr.  <%= link_to "Buy", player_buy_path(planet.game.player), remote: true %>
+  <%= name %>: <%= value %> cr.  <%= link_to "Buy", player_buy_path(planet.game.player, item: "#{name}", price: "#{value}"), remote: true, method: :post %>
   <br>
 <% end %>
 <br><br>
