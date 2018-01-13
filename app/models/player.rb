@@ -22,6 +22,17 @@ class Player < ApplicationRecord
     self.save
   end
 
+  def sell_item(item, price)
+    items = self.ship.hold.items
+    item = items.where(name: item)
+    if item
+      item = item.first
+      item.destroy
+      self.credits += price.to_i
+    end
+    self.save
+  end
+
   def buy(item_name)
     planet = Planet.find(planet_id)
 

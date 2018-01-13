@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :players do
     post "buy" => "players#buy", :as => "buy"
+    post "sell" => "players#sell", :as => "sell"
   end
   resources :ships
 
