@@ -16,6 +16,23 @@ class Player < ApplicationRecord
   def withdraw_savings(amount)
   end
 
+  def buy_item(item, price)
+    self.ship.hold.items << Item.new(name: item)
+    self.credits -= price.to_i
+    self.save
+  end
+
+  def sell_item(item, price)
+    items = self.ship.hold.items
+    remove_item = items.select{ |i| i.name == item}
+    if !remove_item.nil?
+      remove_item = remove_item.first
+      remove_item.destroy
+      self.credits += price.to_i
+    end
+    self.save
+  end
+
   def buy(item_name)
     planet = Planet.find(planet_id)
 

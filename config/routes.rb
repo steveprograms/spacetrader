@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :map
   end
   resources :players do
-    post "buy/:item" => "players#buy", :as => "buy"
+    post "buy" => "players#buy", :as => "buy"
+    post "sell" => "players#sell", :as => "sell"
   end
   resources :ships
 

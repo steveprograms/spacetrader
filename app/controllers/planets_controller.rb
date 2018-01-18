@@ -1,7 +1,6 @@
 class PlanetsController < ApplicationController
 	
 	def new
-	  puts params
 	  @planet = Planet.new
   end
 
