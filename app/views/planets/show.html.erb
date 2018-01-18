@@ -10,12 +10,13 @@
 Player credits: <span class="player-credits"><%= planet.game.player.credits %></span>
 <br><br>
 
-<% planet.store.items.each do |name, value| %>
+<% planet.store.items.sort.each do |name, value| %>
   <% name = name[0, name.length - 6] %>
-  <div><%= name %></div>
+  <div class="item-store-name"><%= name.split('_').map(&:capitalize).join(' ') %></div>
   <div>Quantity: <span class="<%= name %>-quantity"><%= player.ship.hold.items.where(name: name).length %> </span></div>
-  <div>Price: <%= value %> cr.</div><%= link_to "Buy", player_buy_path(planet.game.player, item: "#{name}", price: "#{value}"), remote: true, method: :post %>
-  <%= link_to "Sell", player_sell_path(planet.game.player, item: "#{name}", price: "#{value}"), remote: true, method: :post %>
+  <div>Price: <%= value %> cr.</div>
+  <%= link_to "Buy", player_buy_path(planet.game.player, item: "#{name}", price: "#{value}"), remote: true, method: :post, class: "btn" %>
+  <%= link_to "Sell", player_sell_path(planet.game.player, item: "#{name}", price: "#{value}"), remote: true, method: :post, class: "btn" %>
   <br>
 
   <br>
