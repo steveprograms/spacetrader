@@ -1,3 +1,6 @@
 quantity = parseInt($(".<%= @item %>-quantity").html())
 quantity += 1
 $(".<%= @item %>-quantity").html(quantity)
+price = parseInt($(".player-credits").html())
+price -= <%= @price %>
+$(".player-credits").html(price)
