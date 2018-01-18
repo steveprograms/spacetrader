@@ -1,7 +1,6 @@
 class PlayersController < ApplicationController
 	
 	def new
-		puts params
 		@player = Player.new
   end
 
@@ -16,9 +15,7 @@ class PlayersController < ApplicationController
   end
 
   def buy
-    puts "HITTING CONTROLLER"
     @item = params[:item]
-
     @price =  params[:price]
     player = Player.find(params[:player_id])
     player.buy_item(@item, @price)
@@ -28,9 +25,7 @@ class PlayersController < ApplicationController
   end
 
   def sell
-    puts "HITTING CONTROLLER"
-    item = params[:item]
-    @item = item[0, item.length - 6]
+    @item = params[:item]
     @price =  params[:price]
     player = Player.find(params[:player_id])
     player.sell_item(@item, @price)

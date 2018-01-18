@@ -1,12 +1,10 @@
 class GamesController < ApplicationController
 
   def index
-    puts "SHIT"
     @game = Game.find(params[:id])
   end
 	
 	def new
-	  puts params
 	  @game = Game.new
   end
 
@@ -17,7 +15,6 @@ class GamesController < ApplicationController
   end
 
   def show
-    puts "HIT"
     @game = Game.find(params[:id])
   end
 
