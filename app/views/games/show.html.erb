@@ -6,3 +6,5 @@ Show that game!
   <%= link_to planet.name, game_planet_path(game, planet) %>
   <br>
 <% end %>
+
+<%= react_component 'Game', { data: @game } %>

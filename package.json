@@ -1,5 +1,35 @@
 {
   "name": "spacetrader",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steveprograms/spacetrader.git"
+  },
+  "author": "steve marks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steveprograms/spacetrader/issues"
+  },
+  "homepage": "https://github.com/steveprograms/spacetrader#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack-dev-server": "2.11.2"
+  }
 }
